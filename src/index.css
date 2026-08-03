@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F5F0EA;
+  --surface: #FFFFFF;
+  --text-primary: #231815;
+  --text-secondary: #6E625D;
+  --border: #DDD3CB;
+  --highlight: #F7E9D8;
+  --accent: #E00026;
+  --accent-hover: #C50020;
+  --success: #2E7D32;
+  --warning: #F9A825;
+  --error: #C62828;
+  --card-bg: #FFFFFF;
+  --input-bg: #FFFFFF;
+  --sidebar-bg: #FFFFFF;
+  --header-bg: #FFFFFF;
+  --hover-bg: #F5F0EA;
+  --muted-bg: #F5F0EA;
+}
+[data-theme="dark"] {
+  --bg: #1A1512;
+  --surface: #231815;
+  --text-primary: #F5F0EA;
+  --text-secondary: #A89D96;
+  --border: #3D3530;
+  --highlight: #3A2520;
+  --accent: #E00026;
+  --accent-hover: #FF1A3C;
+  --success: #4CAF50;
+  --warning: #FBC02D;
+  --error: #EF5350;
+  --card-bg: #2A221E;
+  --input-bg: #1F1A17;
+  --sidebar-bg: #1A1512;
+  --header-bg: #231815;
+  --hover-bg: #2A221E;
+  --muted-bg: #2A221E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg); color: var(--text-primary);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+@layer components {
+  .card { @apply rounded-2xl border shadow-sm transition-colors duration-300; background: var(--card-bg); border-color: var(--border); }
+  .input-field { @apply w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E00026]/20 transition-all duration-300; background: var(--input-bg); border: 1px solid var(--border); color: var(--text-primary); }
+  .input-field::placeholder { color: var(--text-secondary); }
+  .btn-primary { @apply px-6 py-3 bg-[#E00026] text-white rounded-xl font-semibold hover:bg-[#C50020] active:scale-[0.98] transition-all duration-200 shadow-sm; }
+  .btn-secondary { @apply px-6 py-3 rounded-xl font-semibold active:scale-[0.98] transition-all duration-200; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--hover-bg); }
+  .btn-ghost { @apply px-4 py-2 rounded-xl transition-all duration-200; color: var(--text-secondary); }
+  .btn-ghost:hover { background: var(--hover-bg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 0, 38, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(224, 0, 38, 0); }
+}
+.animate-fadeIn { animation: fadeIn 0.4s ease-out; }
+.animate-slideIn { animation: slideIn 0.3s ease-out; }
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
