@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{font-family:'Segoe UI',sans-serif;max-width:1000px;margin:auto;padding:40px;color:#1a1a1a}
+h1{color:#E00026;border-bottom:3px solid #E00026;padding-bottom:8px;font-size:24px}
+h2{color:#1a1a1a;margin-top:32px;font-size:18px}
+h3{color:#E00026;font-size:14px;margin-top:20px}
+.step{margin:8px 0;padding:6px 12px;border-left:3px solid #E00026;background:#faf8f5;border-radius:0 8px 8px 0}
+.step-num{display:inline-block;background:#E00026;color:#fff;width:22px;height:22px;border-radius:50%;text-align:center;font-size:12px;line-height:22px;margin-right:8px;font-weight:bold}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px;background:#231815;border-radius:12px;color:#fff;font-size:12px;margin:12px 0}
+.flow span{background:#E00026;padding:4px 12px;border-radius:6px;white-space:nowrap}
+.arrow{color:#F9A825;font-weight:bold}
+.module{border:1px solid #DDD3CB;border-radius:12px;padding:16px;margin:16px 0;background:#fff}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12px}
+th{background:#E00026;color:#fff;padding:8px;text-align:left;font-size:11px}
+td{padding:8px;border-bottom:1px solid #DDD3CB}
+tr:nth-child(even){background:#faf8f5}
+.key{background:#F7E9D8;border:1px solid #E00026;border-radius:8px;padding:12px;margin:12px 0;font-size:12px}
+.key strong{color:#E00026}
+</style>
+</head>
+<body>
+
+<h1>IronForge Gym OS — User Flow Guide</h1>
+<p style="color:#6E625D;font-size:13px">AI-Native Gym Management System · 22 Modules · August 2026</p>
+
+<div class="key">
+<strong>How To Read This Guide:</strong> Each module shows the step-by-step flow (➔) and the screens/components involved. All pages are accessible from the sidebar navigation. AI-powered modules are marked with 🤖.
+</div>
+
+<!-- ====== 1 ====== -->
+<h2>1. Dashboard</h2>
+<div class="module">
+<div class="flow"><span>Login / Open App</span> <span class="arrow">➔</span> <span>Dashboard loads automatically</span></div>
+<p><strong>What you see:</strong> KPI cards (members, revenue, occupancy), attendance chart with AI forecast, churn risk bar chart, 3 live sections below (Churn Alerts, Lead Response, Class Optimization).</p>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> App opens → Dashboard is the default home page.</div>
+<div class="step"><span class="step-num">2</span> Review AI Action Required banner — click <b>"Review Now"</b> to jump to Retention page.</div>
+<div class="step"><span class="step-num">3</span> Toggle timeframe (Day / Week / Month) to filter KPI data view.</div>
+<div class="step"><span class="step-num">4</span> Click any churn alert card → navigates to that member's profile.</div>
+<div class="step"><span class="step-num">5</span> Click any lead card → navigates to Leads page.</div>
+<div class="step"><span class="step-num">6</span> Click any class → navigates to Schedule page.</div>
+</div>
+
+<!-- ====== 2 ====== -->
+<h2>2. Members (Core Operations)</h2>
+<div class="module">
+<div class="flow"><span>Dashboard</span> <span class="arrow">➔</span> <span>Click Members in sidebar</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Navigate to Members page → see full table with search, filter, churn risk bars.</div>
+<div class="step"><span class="step-num">2</span> Click <b>"Add Member"</b> → modal opens → enter name, email, phone, select plan → submit.</div>
+<div class="step"><span class="step-num">3</span> Member appears instantly in the list with success toast.</div>
+<div class="step"><span class="step-num">4</span> Use filter tabs (All / Active / At-Risk / PastDue) to segment members.</div>
+<div class="step"><span class="step-num">5</span> Use search bar to find by name or email.</div>
+<div class="step"><span class="step-num">6</span> Click any member row → navigates to Member Profile page.</div>
+</div>
+
+<!-- ====== 3 ====== -->
+<h2>3. Member Profile</h2>
+<div class="module">
+<div class="flow"><span>Members List</span> <span class="arrow">➔</span> <span>Click member row</span> <span class="arrow">➔</span> <span>Member Profile</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View member header (name, plan, status, contact buttons).</div>
+<div class="step"><span class="step-num">2</span> See 360° score cards: Engagement, Churn Risk, Streak, Lifetime Value.</div>
+<div class="step"><span class="step-num">3</span> View engagement trend chart (8-week history).</div>
+<div class="step"><span class="step-num">4</span> For at-risk members: click <b>"Trigger AI Outreach"</b> → sends WhatsApp + Email.</div>
+<div class="step"><span class="step-num">5</span> Click AI recommendation actions (Send Offer / Take Action / Recommend).</div>
+<div class="step"><span class="step-num">6</span> Review Quick Stats, Goals, and Communication Log sections.</div>
+<div class="step"><span class="step-num">7</span> Click <b>"Back to Members"</b> to return.</div>
+</div>
+
+<!-- ====== 4 ====== -->
+<h2>4. Schedule (Core Operations)</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Click Schedule</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View class cards with fill rate %, time, trainer, room.</div>
+<div class="step"><span class="step-num">2</span> Click <b>"Add Class"</b> → modal → fill class name, trainer, time, type, room, capacity → submit.</div>
+<div class="step"><span class="step-num">3</span> New class card appears immediately.</div>
+<div class="step"><span class="step-num">4</span> Click day selector (Today / Mon / Tue…) to filter.</div>
+<div class="step"><span class="step-num">5</span> Read AI recommendations on underbooked classes (highlighted cards).</div>
+</div>
+
+<!-- ====== 5 ====== -->
+<h2>5. Billing & Revenue</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Click Billing</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View revenue KPIs (Monthly Revenue, Collection Rate, Pending, Failed).</div>
+<div class="step"><span class="step-num">2</span> Review Revenue vs Expenses chart with AI forecast overlay.</div>
+<div class="step"><span class="step-num">3</span> Click <b>"Export Report"</b> → downloads CSV file to your computer.</div>
+<div class="step"><span class="step-num">4</span> Click AI insight action buttons → shows confirmation toast.</div>
+<div class="step"><span class="step-num">5</span> Filter transactions by Paid / Pending / Failed using tabs.</div>
+</div>
+
+<!-- ====== 6 ====== -->
+<h2>6. Check-In</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Click Check-In</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Click <b>"Show QR"</b> to display QR code (member scans at kiosk).</div>
+<div class="step"><span class="step-num">2</span> Click <b>"Simulate Scan"</b> → 2-second scanning animation → success card shows member name + time.</div>
+<div class="step"><span class="step-num">3</span> View live check-in counter, peak hours, currently inside count.</div>
+<div class="step"><span class="step-num">4</span> Click AI insight actions (View Member, Security Log, Manage Kiosks).</div>
+</div>
+
+<!-- ====== 7 ====== -->
+<h2>7. POS / Inventory</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Click POS / Inventory</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Filter products by category (All / Supplements / Merchandise / Accessories / Beverages / Snacks).</div>
+<div class="step"><span class="step-num">2</span> Click a product card → adds to cart (click again to increase qty).</div>
+<div class="step"><span class="step-num">3</span> In cart: adjust quantity (+/-), remove items (trash icon).</div>
+<div class="step"><span class="step-num">4</span> Click <b>"Checkout"</b> → success animation with total.</div>
+<div class="step"><span class="step-num">5</span> View Today's Sales summary and Low Stock Alerts below.</div>
+</div>
+
+<!-- ====== 8 ====== -->
+<h2>8. Staff & Trainers</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Click Staff & Trainers</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View all trainers as cards (name, role, rating, utilization, commission).</div>
+<div class="step"><span class="step-num">2</span> Click a trainer card → expands to show <b>"Approve Commission"</b> button.</div>
+<div class="step"><span class="step-num">3</span> Click <b>"Approve Commission"</b> → shows confirmed status.</div>
+<div class="step"><span class="step-num">4</span> Review Schedule Conflicts section with severity badges (High / Low).</div>
+<div class="step"><span class="step-num">5</span> Click <b>"Resolve All"</b> to clear conflicts.</div>
+</div>
+
+<!-- ====== 9 ====== -->
+<h2>9. Equipment Heatmap</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Core Operations</span> <span class="arrow">➔</span> <span>Equipment Heatmap</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> See live gym occupancy % and "Best Time Today" recommendation.</div>
+<div class="step"><span class="step-num">2</span> View Hourly Zone Utilization chart (Cardio / Weights / Strength / Functional).</div>
+<div class="step"><span class="step-num">3</span> Read Zone Status cards showing occupancy bars + best time to visit.</div>
+<div class="step"><span class="step-num">4</span> Filter equipment by zone (All / Cardio / Free Weights / Strength / Functional).</div>
+<div class="step"><span class="step-num">5</span> Search for specific equipment by name.</div>
+<div class="step"><span class="step-num">6</span> Click equipment card → expands to show detailed stats (peak hour, wait time, trend).</div>
+</div>
+
+<!-- ====== 10 - AI LEADS ====== -->
+<h2>10. 🤖 AI Lead Response</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>AI & Automation</span> <span class="arrow">➔</span> <span>Leads</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View Kanban pipeline (New → Contacted → Trial Scheduled → Converted → Lost).</div>
+<div class="step"><span class="step-num">2</span> Click a lead card → selects/deselects it.</div>
+<div class="step"><span class="step-num">3</span> Click <b>"Demo AI Call"</b> → 4-step animation: AI detects lead → calls → connects → books trial in 23s.</div>
+<div class="step"><span class="step-num">4</span> Click <b>"Add Lead"</b> → modal → fill name, email, source, interest → submit.</div>
+<div class="step"><span class="step-num">5</span> New lead appears in "New" column. AI auto-responds in ~30 seconds.</div>
+</div>
+
+<!-- ====== 11 - AI RETENTION ====== -->
+<h2>11. 🤖 AI Retention Engine</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>AI & Automation</span> <span class="arrow">➔</span> <span>Retention</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View Churn Signal Analysis chart (top reasons for churn).</div>
+<div class="step"><span class="step-num">2</span> Read "How It Works" section: Predict → Auto-Act → Staff Review → Measure.</div>
+<div class="step"><span class="step-num">3</span> Scroll to Active Churn Alerts — each shows member, risk level, reason, recommended action.</div>
+<div class="step"><span class="step-num">4</span> Click <b>"Approve"</b> → outreach simulation modal opens (4-step: approved → sent → member opens → recovered).</div>
+<div class="step"><span class="step-num">5</span> Click <b>"Decline"</b> → status changes to "Declined — member moved to watchlist."</div>
+<div class="step"><span class="step-num">6</span> Filter by All / Pending / Approved tabs.</div>
+</div>
+
+<!-- ====== 12 - AI FRONT DESK ====== -->
+<h2>12. 🤖 AI Front Desk</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>AI & Automation</span> <span class="arrow">➔</span> <span>AI Front Desk</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View Active Conversations list (Voice / WhatsApp / SMS / Chat channels).</div>
+<div class="step"><span class="step-num">2</span> Click any conversation → chat window opens with member message + AI response.</div>
+<div class="step"><span class="step-num">3</span> Type in the input box → press Enter → AI responds after 800ms.</div>
+<div class="step"><span class="step-num">4</span> Click <b>mic button</b> → 2s voice animation → auto-fills text.</div>
+<div class="step"><span class="step-num">5</span> See channel icons showing which platform the conversation is on.</div>
+</div>
+
+<!-- ====== 13 ====== -->
+<h2>13. 🤖 Member 360°</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>AI & Automation</span> <span class="arrow">➔</span> <span>Member 360°</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Click any member pill at top to switch members (8 available).</div>
+<div class="step"><span class="step-num">2</span> Radar chart updates showing 6 metrics (attendance, engagement, payments, classes, goals, social).</div>
+<div class="step"><span class="step-num">3</span> View AI Health Score ring (0-100) with breakdown items.</div>
+<div class="step"><span class="step-num">4</span> Click <b>"View Full Profile"</b> → navigates to Member Profile.</div>
+<div class="step"><span class="step-num">5</span> Scroll to Member Health Score Trend chart (all members, 8-month history).</div>
+</div>
+
+<!-- ====== 14 ====== -->
+<h2>14. 🤖 AI Business Intelligence</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>AI & Automation</span> <span class="arrow">➔</span> <span>AI Business Intelligence</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Read AI Analyst Chat welcome message.</div>
+<div class="step"><span class="step-num">2</span> Click any Quick Query (Churn Risk / Revenue / Attendance / Leads / Classes / Members).</div>
+<div class="step"><span class="step-num">3</span> AI responds with tables, KPIs, or charts + insight paragraph.</div>
+<div class="step"><span class="step-num">4</span> Type custom question in the input → press Enter → AI responds with relevant analysis.</div>
+<div class="step"><span class="step-num">5</span> Type hints: "Show me revenue by plan" or "Which members are at risk?"</div>
+</div>
+
+<!-- ====== 15 ====== -->
+<h2>15. 🤖 No-Show Prediction</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>AI & Automation</span> <span class="arrow">➔</span> <span>No-Show Prediction</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View 5 member predictions with probability % bars and reasons.</div>
+<div class="step"><span class="step-num">2</span> See auto-reminded badges on members already contacted.</div>
+<div class="step"><span class="step-num">3</span> Click <b>"Send Reminder Now"</b> for manual outreach on un-reminded members.</div>
+<div class="step"><span class="step-num">4</span> View Smart Waitlist Backfill panel — click <b>"Trigger Backfill"</b> to auto-confirm waitlisted members.</div>
+<div class="step"><span class="step-num">5</span> Review deposit recommendation at bottom.</div>
+<div class="step"><span class="step-num">6</span> Click <b>"Simulate AI Prevention"</b> → 3-step modal: prediction → reminders → 62% prevention rate.</div>
+</div>
+
+<!-- ====== 16 ====== -->
+<h2>16. 🤖 Revenue Optimizer</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Growth & Scale</span> <span class="arrow">➔</span> <span>Revenue Optimizer</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Toggle between Plan Upsells and Dynamic Pricing tabs.</div>
+<div class="step"><span class="step-num">2</span> View Upsell Pipeline chart (Ready → Warming → Nurturing).</div>
+<div class="step"><span class="step-num">3</span> For each upsell opportunity → click <b>"Send Upgrade Offer"</b> → shows confirmation.</div>
+<div class="step"><span class="step-num">4</span> For dynamic pricing → click <b>"Apply Pricing"</b> → shows "Dynamic pricing active" confirmation.</div>
+<div class="step"><span class="step-num">5</span> Review total revenue opportunity banner at top.</div>
+</div>
+
+<!-- ====== 17 ====== -->
+<h2>17. 🤖 Payment Recovery</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Growth & Scale</span> <span class="arrow">➔</span> <span>Payment Recovery</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View recovery stats: Total Failed, Recovered, Recovery Rate, AI Outreach Success.</div>
+<div class="step"><span class="step-num">2</span> Read AI Dunning Sequence diagram (Day 1: Auto-Retry → Day 3: SMS → Day 7: Call → Day 14: Offer Plan).</div>
+<div class="step"><span class="step-num">3</span> For each dunning record → click <b>"Mark Recovered"</b> OR <b>"Offer Plan"</b>.</div>
+<div class="step"><span class="step-num">4</span> View Active Payment Plans (installment offers accepted).</div>
+<div class="step"><span class="step-num">5</span> Click <b>"Simulate Recovery"</b> → 4-step modal showing full dunning workflow.</div>
+</div>
+
+<!-- ====== 18 ====== -->
+<h2>18. 🤖 AI Marketing Campaigns</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Growth & Scale</span> <span class="arrow">➔</span> <span>AI Campaigns</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View 4 campaign cards (Win-Back, Referral, Class Boost, Upsell).</div>
+<div class="step"><span class="step-num">2</span> For Draft campaigns → click <b>"Launch Campaign"</b> → shows confirmation.</div>
+<div class="step"><span class="step-num">3</span> For Active campaigns → view open rates, conversion stats, revenue generated.</div>
+<div class="step"><span class="step-num">4</span> Scroll to A/B Test Results — see winning variants with improvement percentages.</div>
+</div>
+
+<!-- ====== 19 ====== -->
+<h2>19. Multi-Location</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Growth & Scale</span> <span class="arrow">➔</span> <span>Multi-Location</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Click location pills (IronForge Main / West / South / East) to switch.</div>
+<div class="step"><span class="step-num">2</span> Per-location KPIs update for the selected location.</div>
+<div class="step"><span class="step-num">3</span> View Location Comparison bar chart (toggle Revenue / Members / Occupancy).</div>
+<div class="step"><span class="step-num">4</span> Review Performance Ranking list (sorted by revenue, shows growth %).</div>
+</div>
+
+<!-- ====== 20 ====== -->
+<h2>20. 🏋️ AI Workout Plan Generator</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Member Experience</span> <span class="arrow">➔</span> <span>AI Workout Plan</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Enter your name (optional) in the input field.</div>
+<div class="step"><span class="step-num">2</span> Select a goal card: Weight Loss, Muscle Building, General Fitness, or Endurance.</div>
+<div class="step"><span class="step-num">3</span> Click <b>"Generate My 4-Week Plan"</b> → 2-second AI generation animation.</div>
+<div class="step"><span class="step-num">4</span> View full plan: red header with goal + description, 4 week tabs, 6 daily workout cards.</div>
+<div class="step"><span class="step-num">5</span> Click week tabs (W1–W4) → exercises update with progressive overload (more sets/reps).</div>
+<div class="step"><span class="step-num">6</span> Read Cardio Schedule and AI Coach Notes sections.</div>
+<div class="step"><span class="step-num">7</span> Click <b>"Save Plan"</b> or <b>"New Plan"</b> to start over.</div>
+</div>
+
+<!-- ====== 21 ====== -->
+<h2>21. 🏆 Leaderboard & Challenges</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Member Experience</span> <span class="arrow">➔</span> <span>Leaderboard</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View 4 challenge cards at top — click any to select the active challenge.</div>
+<div class="step"><span class="step-num">2</span> See podium visualization (🥇🥈🥉) with top 3 members.</div>
+<div class="step"><span class="step-num">3</span> Scroll full leaderboard (10 members per challenge) with trend arrows.</div>
+<div class="step"><span class="step-num">4</span> Click <b>"Join Challenge"</b> → changes to "You're in! Good luck 🎉".</div>
+<div class="step"><span class="step-num">5</span> Browse Achievement Badges grid (10 badges).</div>
+<div class="step"><span class="step-num">6</span> View Your Stats (rank, challenges won, badges earned, best streak).</div>
+</div>
+
+<!-- ====== 22 ====== -->
+<h2>22. 🍎 Nutrition & Meal Plans</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Member Experience</span> <span class="arrow">➔</span> <span>Nutrition & Meals</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> View macro summary: Daily Calories, Protein Target, Meals, Pre/Post-Workout timing.</div>
+<div class="step"><span class="step-num">2</span> Tap water glasses (💧) to track intake — turns red when logged.</div>
+<div class="step"><span class="step-num">3</span> Select plan: Weight Loss (1800 cal) / Muscle Gain (2800 cal) / General Fitness (2200 cal).</div>
+<div class="step"><span class="step-num">4</span> View 6-meal daily schedule — click any meal to expand and see food list.</div>
+<div class="step"><span class="step-num">5</span> Read Recommended Supplements section (changes per selected goal).</div>
+<div class="step"><span class="step-num">6</span> Read AI Nutrition Tips at bottom.</div>
+<div class="step"><span class="step-num">7</span> Click <b>"Save Plan"</b> to confirm.</div>
+</div>
+
+<!-- ====== 23 ====== -->
+<h2>23. ⚙️ Settings</h2>
+<div class="module">
+<div class="flow"><span>Sidebar</span> <span class="arrow">➔</span> <span>Settings (bottom of sidebar)</span></div>
+<h3>Step-by-Step:</h3>
+<div class="step"><span class="step-num">1</span> Edit Gym Profile fields (Name, Email, Phone, Location).</div>
+<div class="step"><span class="step-num">2</span> Toggle AI Automation settings (6 switches: churn outreach, lead response, voice receptionist, class fill, no-show predictions, dynamic pricing).</div>
+<div class="step"><span class="step-num">3</span> Review Integration status cards (Razorpay, Google Fit, Apple Health, Strava, etc.).</div>
+<div class="step"><span class="step-num">4</span> Click <b>"Save Changes"</b> → shows "Saved!" for 3 seconds.</div>
+</div>
+
+<!-- ====== GLOBAL ====== -->
+<h2>24. 🌐 Global Features</h2>
+<div class="module">
+<h3>Dark Mode Toggle</h3>
+<div class="step"><span class="step-num">1</span> Click 🌙 moon icon in header → switches to dark theme.</div>
+<div class="step"><span class="step-num">2</span> Click ☀️ sun icon → switches back to light theme.</div>
+<div class="step"><span class="step-num">3</span> Preference saved in localStorage — persists across sessions.</div>
+<h3>Multi-Language (i18n)</h3>
+<div class="step"><span class="step-num">1</span> Click 🇬🇧 globe icon in header → dropdown shows 5 languages.</div>
+<div class="step"><span class="step-num">2</span> Select any language (हिन्दी / தமிழ் / తెలుగు / मराठी) → sidebar labels update instantly.</div>
+<h3>Search</h3>
+<div class="step"><span class="step-num">1</span> Use global search bar in header to search members, classes, leads.</div>
+</div>
+
+<h2 style="margin-top:40px">📊 Complete Navigation Map</h2>
+<table>
+<tr><th>Section</th><th>Page</th><th>Route</th><th>AI</th></tr>
+<tr><td rowspan="8">Core Operations</td><td>Dashboard</td><td>/</td><td></td></tr>
+<tr><td>Members</td><td>/members</td><td></td></tr>
+<tr><td>Schedule</td><td>/schedule</td><td></td></tr>
+<tr><td>Billing</td><td>/billing</td><td></td></tr>
+<tr><td>Check-In</td><td>/checkin</td><td></td></tr>
+<tr><td>POS / Inventory</td><td>/pos</td><td></td></tr>
+<tr><td>Staff & Trainers</td><td>/staff</td><td></td></tr>
+<tr><td>Equipment Heatmap</td><td>/equipment</td><td></td></tr>
+<tr><td rowspan="6">AI & Automation</td><td>AI Business Intelligence</td><td>/ai-insights</td><td>🤖</td></tr>
+<tr><td>AI Lead Response</td><td>/leads</td><td>🤖</td></tr>
+<tr><td>AI Retention Engine</td><td>/retention</td><td>🤖</td></tr>
+<tr><td>AI Front Desk</td><td>/frontdesk</td><td>🤖</td></tr>
+<tr><td>No-Show Prediction</td><td>/no-show</td><td>🤖</td></tr>
+<tr><td>Member 360°</td><td>/member360</td><td>🤖</td></tr>
+<tr><td rowspan="3">Member Experience</td><td>AI Workout Plan</td><td>/workout-planner</td><td>🤖</td></tr>
+<tr><td>Leaderboard</td><td>/leaderboard</td><td></td></tr>
+<tr><td>Nutrition & Meals</td><td>/nutrition</td><td></td></tr>
+<tr><td rowspan="4">Growth & Scale</td><td>Revenue Optimizer</td><td>/revenue-optimizer</td><td>🤖</td></tr>
+<tr><td>Payment Recovery</td><td>/dunning</td><td>🤖</td></tr>
+<tr><td>AI Campaigns</td><td>/campaigns</td><td>🤖</td></tr>
+<tr><td>Multi-Location</td><td>/locations</td><td></td></tr>
+<tr><td></td><td>Settings</td><td>/settings</td><td></td></tr>
+</table>
+
+</body></html>
