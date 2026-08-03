@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Sparkles, Mail, Phone, Calendar, CreditCard, TrendingUp, Activity, ShieldAlert, MessageSquare, Zap, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Sparkles, Mail, Phone, Calendar, CreditCard, TrendingUp, Activity, ShieldAlert, MessageSquare, Zap, CheckCircle2, Target, Flame } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import AIBadge from '../../components/common/AIBadge';
 import ProgressBar from '../../components/common/ProgressBar';
 import { mockMembers } from '../../data/mockData';
+import { useGamification } from '../../contexts/GamificationContext';
+import XPBar from '../../components/gamification/XPBar';
 
 const engagementTrend = [
   { week: 'W1', score: 85, attendance: 7, engagement: 90 },
@@ -23,6 +25,7 @@ export default function MemberProfile() {
   const member = mockMembers.find(m => m.id === id);
   const [outreachSent, setOutreachSent] = useState(false);
   const [clickedActions, setClickedActions] = useState<Record<number, string>>({});
+  const { addXP, addCoins, xp } = useGamification();
 
   if (!member) {
     return (
@@ -75,7 +78,7 @@ export default function MemberProfile() {
               </div>
               <p className="text-[11px] text-[#6E625D] mb-3">No visits in {22} days. AI recommends immediate outreach.</p>
               <button 
-                onClick={() => setOutreachSent(true)}
+                onClick={() => { setOutreachSent(true); addXP(50, 'outreach'); addCoins(20); }}
                 className="btn-primary text-xs w-full"
               >
                 {outreachSent ? '✓ Outreach Sent!' : 'Trigger AI Outreach'}

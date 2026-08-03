@@ -1,8 +1,12 @@
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import CountUp from './CountUp';
 
 interface KpiCardProps {
   title: string;
   value: string | number;
+  countUpEnd?: number;
+  countUpPrefix?: string;
+  countUpSuffix?: string;
   subtitle?: string;
   trend?: 'up' | 'down' | 'neutral';
   trendValue?: string;
@@ -11,14 +15,18 @@ interface KpiCardProps {
   className?: string;
 }
 
-export default function KpiCard({ title, value, subtitle, trend, trendValue, icon, accent, className = '' }: KpiCardProps) {
+export default function KpiCard({ title, value, countUpEnd, countUpPrefix, countUpSuffix, subtitle, trend, trendValue, icon, accent, className = '' }: KpiCardProps) {
+  const displayValue = countUpEnd !== undefined
+    ? <CountUp end={countUpEnd} duration={1800} prefix={countUpPrefix || ''} suffix={countUpSuffix || ''} />
+    : <span>{value}</span>;
+
   return (
-    <div className={`card p-5 hover:shadow-md transition-shadow duration-300 ${accent ? 'border-l-[3px] border-l-[#E00026]' : ''} ${className}`}>
+    <div className={`card p-5 transition-shadow duration-300 ${accent ? 'border-l-[3px] border-l-[#E00026]' : ''} ${className}`}>
       <div className="flex items-start justify-between mb-3">
-        <p className="text-xs font-semibold text-[#6E625D] uppercase tracking-wider">{title}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>{title}</p>
         {icon && <div className="text-[#E00026]">{icon}</div>}
       </div>
-      <p className="text-2xl font-extrabold text-[#231815] mb-1">{value}</p>
+      <p className="text-2xl font-extrabold mb-1 animate-countIn" style={{ color: 'var(--text-primary)' }}>{displayValue}</p>
       <div className="flex items-center gap-2">
         {trend && (
           <span className={`flex items-center gap-0.5 text-xs font-semibold ${
@@ -28,7 +36,7 @@ export default function KpiCard({ title, value, subtitle, trend, trendValue, ico
             {trendValue}
           </span>
         )}
-        {subtitle && <p className="text-[11px] text-[#6E625D]">{subtitle}</p>}
+        {subtitle && <p className="text-[11px]" style={{ color: 'var(--text-secondary)' }}>{subtitle}</p>}
       </div>
     </div>
   );

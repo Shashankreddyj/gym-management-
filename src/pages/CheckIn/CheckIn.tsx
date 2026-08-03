@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { QrCode, Camera, CheckCircle2, Clock, Users, Shield, Sparkles, AlertCircle } from 'lucide-react';
+import { QrCode, Camera, CheckCircle2, Clock, Users, Shield, Sparkles, AlertCircle, Gift } from 'lucide-react';
 import AIBadge from '../../components/common/AIBadge';
+import { useGamification } from '../../contexts/GamificationContext';
+import { CoinBadge } from '../../components/gamification/XPBar';
 
 export default function CheckIn() {
   const [scanning, setScanning] = useState(false);
@@ -10,6 +12,7 @@ export default function CheckIn() {
   const [showQR, setShowQR] = useState(false);
   const [clickedActions, setClickedActions] = useState<Record<number, string>>({});
   const navigate = useNavigate();
+  const { addXP, addCoins, coins } = useGamification();
 
   const simulateScan = () => {
     setScanning(true);
@@ -17,6 +20,8 @@ export default function CheckIn() {
       setScanning(false);
       setCheckinCount(c => c + 1);
       setLastCheckin(`Rajesh Kumar — Premium Member — ${new Date().toLocaleTimeString()}`);
+      addXP(10, 'checkin');
+      addCoins(5);
     }, 2000);
   };
 

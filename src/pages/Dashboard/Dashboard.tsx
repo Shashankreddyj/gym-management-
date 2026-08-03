@@ -9,6 +9,9 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, R
 import KpiCard from '../../components/common/KpiCard';
 import AIBadge from '../../components/common/AIBadge';
 import ProgressBar from '../../components/common/ProgressBar';
+import DailyQuestsCard from '../../components/gamification/DailyQuestsCard';
+import SpinWheel from '../../components/gamification/SpinWheel';
+import { useGamification } from '../../contexts/GamificationContext';
 import { kpiData, attendanceTrend, revenueData, churnRiskDistribution, mockChurnAlerts, mockLeads, mockClasses } from '../../data/mockData';
 
 const COLORS = ['#2E7D32', '#F9A825', '#C62828'];
@@ -47,7 +50,7 @@ export default function Dashboard() {
 
       {/* AI Urgent Alert Banner */}
       {showAIAction && (
-        <div className="card p-4 border-l-[3px] border-l-[#E00026] bg-[#F7E9D8]/30 animate-slideIn">
+        <div className="glass-card p-5 border-l-[3px] border-l-[#E00026] animate-slideIn rounded-2xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-[#E00026] rounded-xl flex items-center justify-center">
@@ -55,10 +58,10 @@ export default function Dashboard() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-[#231815]">AI Action Required</span>
+                  <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>AI Action Required</span>
                   <AIBadge />
                 </div>
-                <p className="text-xs text-[#6E625D] mt-0.5">
+                <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                   3 high-risk members need attention. Outreach sequences auto-triggered — awaiting your approval.
                 </p>
               </div>
@@ -78,6 +81,7 @@ export default function Dashboard() {
         <KpiCard
           title="Active Members"
           value={kpiData.activeMembers}
+          countUpEnd={kpiData.activeMembers}
           subtitle={`of ${kpiData.totalMembers} total`}
           trend="up"
           trendValue="+12 this month"
@@ -86,6 +90,9 @@ export default function Dashboard() {
         <KpiCard
           title="Monthly Revenue"
           value={`₹${(kpiData.monthlyRevenue / 100000).toFixed(1)}L`}
+          countUpEnd={kpiData.monthlyRevenue / 100000}
+          countUpPrefix="₹"
+          countUpSuffix="L"
           trend="up"
           trendValue={`${kpiData.revenueGrowth}%`}
           icon={<CreditCard className="w-4 h-4" />}
@@ -94,6 +101,8 @@ export default function Dashboard() {
         <KpiCard
           title="Class Occupancy"
           value={`${kpiData.classOccupancy}%`}
+          countUpEnd={kpiData.classOccupancy}
+          countUpSuffix="%"
           subtitle={`Avg across all classes`}
           trend="up"
           trendValue="+5% vs last month"
@@ -102,6 +111,7 @@ export default function Dashboard() {
         <KpiCard
           title="At-Risk Members"
           value={kpiData.atRiskMembers}
+          countUpEnd={kpiData.atRiskMembers}
           subtitle="Needs attention"
           trend="down"
           trendValue="-8 from last week"
@@ -253,6 +263,12 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Gamification Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2"><DailyQuestsCard /></div>
+        <div><SpinWheel /></div>
       </div>
     </div>
   );

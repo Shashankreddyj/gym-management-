@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Trophy, TrendingUp, TrendingDown, Minus, Star, Flame, Award, Crown, Medal, Users, Calendar, Gift } from 'lucide-react';
+import { Trophy, TrendingUp, TrendingDown, Minus, Star, Flame, Award, Crown, Medal, Users, Calendar, Gift, Map, UserPlus, Share2 } from 'lucide-react';
 import { challenges, badges, Challenge } from '../../data/challengesData';
 import AIBadge from '../../components/common/AIBadge';
+import { useGamification, PersonalRecord } from '../../contexts/GamificationContext';
 
 export default function Leaderboard() {
   const [activeChallenge, setActiveChallenge] = useState<Challenge>(challenges[0]);
   const [joined, setJoined] = useState<Record<string, boolean>>({});
+  const [activeSection, setActiveSection] = useState<'challenges' | 'champions' | 'referrals' | 'records'>('challenges');
+  const { personalRecords, referralCount, addReferral, checkPR } = useGamification();
 
   const handleJoin = (id: string) => setJoined(prev => ({ ...prev, [id]: true }));
 
@@ -135,6 +138,95 @@ export default function Leaderboard() {
           </div>
         </div>
       </div>
+
+      {/* Section Tabs */}
+      <div className="flex gap-1 bg-white rounded-xl border p-1 w-fit" style={{ background: 'var(--card-bg)', borderColor: 'var(--border)' }}>
+        {[
+          { key: 'challenges' as const, label: '🏆 Challenges', icon: Trophy },
+          { key: 'champions' as const, label: '👑 Zone Champions', icon: Map },
+          { key: 'referrals' as const, label: '👥 Referral Race', icon: UserPlus },
+          { key: 'records' as const, label: '📊 Personal Records', icon: Award },
+        ].map(tab => (
+          <button key={tab.key} onClick={() => setActiveSection(tab.key)}
+            className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeSection === tab.key ? 'bg-[#E00026] text-white' : ''}`}
+            style={activeSection !== tab.key ? { color: 'var(--text-secondary)' } : {}}>{tab.label}</button>
+        ))}
+      </div>
+
+      {/* Zone Champions */}
+      {activeSection === 'champions' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { zone: 'Cardio Zone', champ: 'Priya Sharma', avatar: 'PS', stat: '42 sessions', emoji: '🏃', badge: 'Treadmill Queen' },
+            { zone: 'Free Weights', champ: 'Vikram Singh', avatar: 'VS', stat: '68 sessions', emoji: '🏋️', badge: 'Squat Rack King' },
+            { zone: 'Strength Zone', champ: 'Rajesh Kumar', avatar: 'RK', stat: '35 sessions', emoji: '💪', badge: 'Cable Machine Master' },
+            { zone: 'Functional Zone', champ: 'Ananya Iyer', avatar: 'AI', stat: '28 sessions', emoji: '🎯', badge: 'TRX Champion' },
+          ].map(z => (
+            <div key={z.zone} className="card p-5 text-center">
+              <span className="text-3xl">{z.emoji}</span>
+              <div className="w-12 h-12 bg-[#E00026] rounded-2xl flex items-center justify-center text-white font-bold mx-auto my-2">{z.avatar}</div>
+              <p className="text-xs font-bold" style={{ color: 'var(--text-primary)' }}>{z.champ}</p>
+              <p className="text-[10px] font-semibold text-[#F9A825] flex items-center justify-center gap-1 mt-0.5"><Crown className="w-3 h-3" /> {z.badge}</p>
+              <p className="text-[10px] mt-1" style={{ color: 'var(--text-secondary)' }}>{z.zone} • {z.stat}</p>
+              <p className="text-[9px] text-[#2E7D32] mt-2">🏆 Resets every Monday</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Referral Race */}
+      {activeSection === 'referrals' && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 card p-6">
+            <div className="flex items-center gap-2 mb-4"><UserPlus className="w-4 h-4 text-[#E00026]" /><h3 className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>Referral Race — August 2026</h3></div>
+            <div className="space-y-2">
+              {[
+                { rank: 1, name: 'Vikram Singh', avatar: 'VS', refs: 5, reward: '1 Month Free' },
+                { rank: 2, name: 'Priya Sharma', avatar: 'PS', refs: 3, reward: '50% Off Next Month' },
+                { rank: 3, name: 'Ananya Iyer', avatar: 'AI', refs: 2, reward: '₹500 GymCoin Bonus' },
+                { rank: 4, name: 'Rajesh Kumar', avatar: 'RK', refs: 2, reward: 'Free PT Session' },
+                { rank: 5, name: 'Rohan Desai', avatar: 'RD', refs: 1, reward: 'Protein Shake' },
+                { rank: 6, name: 'You', avatar: 'GM', refs: referralCount, reward: '—' },
+              ].map(r => (
+                <div key={r.rank} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: r.name === 'You' ? '#E00026' + '10' : 'var(--muted-bg)' }}>
+                  <span className="text-lg font-extrabold" style={{ color: r.rank <= 3 ? '#F9A825' : 'var(--text-secondary)' }}>#{r.rank}</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[10px] font-bold bg-[#E00026]">{r.avatar}</div>
+                  <span className="flex-1 text-xs font-semibold" style={{ color: 'var(--text-primary)' }}>{r.name}</span>
+                  <span className="text-sm font-extrabold text-[#E00026]">{r.refs} refs</span>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#2E7D32]/10 text-[#2E7D32]">{r.reward}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="card p-5 text-center flex flex-col items-center justify-center">
+            <Share2 className="w-10 h-10 text-[#E00026] mb-3" />
+            <p className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>Your Referral Link</p>
+            <p className="text-[10px] mt-1 mb-3" style={{ color: 'var(--text-secondary)' }}>Share with friends to climb the leaderboard!</p>
+            <div className="w-full p-2 rounded-lg text-[10px] font-mono mb-2" style={{ background: 'var(--muted-bg)', color: 'var(--text-secondary)' }}>ironforge.fit/ref/gym123</div>
+            <button onClick={() => addReferral()} className="btn-primary text-xs w-full">+ Simulate Referral (+100 XP, +50🪙)</button>
+          </div>
+        </div>
+      )}
+
+      {/* Personal Records */}
+      {activeSection === 'records' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {([
+            { id: 'pr-visits', title: 'Most Visits/Month', value: '28', date: 'July 2026', type: 'visits' as const },
+            { id: 'pr-streak', title: 'Longest Streak', value: '45 days', date: 'July 2026', type: 'streak' as const },
+            { id: 'pr-classes', title: 'Most Classes/Week', value: '12', date: 'Aug W1', type: 'classes' as const },
+            { id: 'pr-weight', title: 'Weight Lost', value: '8.5 kg', date: 'Since Jan', type: 'weight' as const },
+          ] as PersonalRecord[]).concat(personalRecords).slice(0, 8).map(pr => (
+            <div key={pr.id} className="card p-4 text-center cursor-pointer hover:shadow-md" onClick={() => checkPR({ ...pr, value: String(parseFloat(pr.value) + 1), date: new Date().toISOString().split('T')[0] })}>
+              <Trophy className="w-6 h-6 text-[#F9A825] mx-auto mb-2" />
+              <p className="text-lg font-extrabold text-[#E00026]">{pr.value}</p>
+              <p className="text-xs font-bold" style={{ color: 'var(--text-primary)' }}>{pr.title}</p>
+              <p className="text-[10px]" style={{ color: 'var(--text-secondary)' }}>{pr.date}</p>
+              <p className="text-[9px] text-[#F9A825] mt-2">Click to update PR →</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

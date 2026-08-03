@@ -73,7 +73,7 @@ export default function Leads() {
         </div>
       </div>
 
-      <div className="card p-5 bg-gradient-to-r from-[#E00026] to-[#C50020] text-white">
+      <div className="gradient-banner p-5 rounded-2xl text-white">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center"><Zap className="w-6 h-6" /></div>

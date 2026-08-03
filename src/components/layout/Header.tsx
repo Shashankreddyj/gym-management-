@@ -2,6 +2,7 @@ import { Search, BellDot, ChevronDown, Moon, Sun, Globe } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useI18n, languages } from '../../contexts/I18nContext';
 import { useState } from 'react';
+import XPBar, { CoinBadge, StreakFreezeBadge } from '../gamification/XPBar';
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -22,6 +23,9 @@ export default function Header() {
         </div>
       </div>
       <div className="flex items-center gap-2">
+        <XPBar />
+        <CoinBadge />
+        <StreakFreezeBadge />
         {/* Language Switcher */}
         <div className="relative">
           <button onClick={() => setShowLangMenu(!showLangMenu)} 
